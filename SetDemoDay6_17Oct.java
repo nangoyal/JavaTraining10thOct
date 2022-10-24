@@ -189,7 +189,7 @@ public class SetDemoDay6_17Oct {
         int f1 = (int)Float.parseFloat(str);
         System.out.println(f1);     //2
 	    
-//        Storing Employee object to Set
+//        Storing Custom-Objects --need to override hashcode() and equals() Employee object to Set
         EmployeeDay6_17Oct emp1 = new EmployeeDay6_17Oct(121,"Sita");
 		EmployeeDay6_17Oct emp2 = new EmployeeDay6_17Oct(122,"Ram");
 		EmployeeDay6_17Oct emp3 = new EmployeeDay6_17Oct(122,"Ram");
@@ -204,6 +204,7 @@ public class SetDemoDay6_17Oct {
 		hs2.add(emp5);
 		
 		System.out.println(hs2.size());   //4 --->Duplication are not allowed --but it will allow emp2 and emp3 cause ---BECAUSE THERE ARE SEPARATE OBJECT FOR THE VALUES.---but won't allow emp5 as it is duplicate of emp1.
+//	IMPORTANT HASHCODE:::	3----after overriding hashcode in Employee class
 		System.out.println(hs2);         //[EmployeeDay6_17Oct [empId=122, empName=Ram, salary=0.0], EmployeeDay6_17Oct [empId=121, empName=Sita, salary=0.0], EmployeeDay6_17Oct [empId=123, empName=Lakshman, salary=0.0]]
         
 		ArrayList<EmployeeDay6_17Oct> al = new ArrayList<>();
@@ -217,17 +218,16 @@ public class SetDemoDay6_17Oct {
 		
 //        HASHCODE---> hashcode();
 //		What is the use of hashcode()--
-//		Based on address hashcode will be generated.
+//		Based on address of Object ,hashcode will be generated.
 		System.out.println(emp1.hashCode());  //32017212--->random address
 		System.out.println(emp2.hashCode());  //1121454968
 		System.out.println(emp3.hashCode());  //1006485584
 		System.out.println(emp4.hashCode());  //466505482
 		System.out.println(emp5.hashCode());  //32017212
+		
 //		NOTICE: same hashcode for emp1 and emp5.
+//		Using (Overriding) equals() method to based on properties (hashcode) of object 
+//		In Employee class create equals method
 		
-		
-
-		
-	    
 	}
 }
